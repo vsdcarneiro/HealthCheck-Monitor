@@ -1,6 +1,6 @@
 function setCellContent(array, row) {
   for (let index = 0; index < array.length; index++) {
-    const status = array[index];
+    const status = array[index].value;
     let imagePath;
     let imageAlt;
     let imageTitle;
@@ -48,7 +48,7 @@ function setCellContent(array, row) {
   const appBPrd = fetch("https://httpstat.us/404").then((res) => res.status);
   const appCPrd = fetch("https://httpstat.us/404").then((res) => res.status);
 
-  const allStatusCode = await Promise.all([
+  const allStatusCode = await Promise.allSettled([
     appADes,
     appBDes,
     appCDes,
